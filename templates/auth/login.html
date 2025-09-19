@@ -1,0 +1,162 @@
+{% extends "base.html" %}
+
+{% block title %}Login - Cinematch{% endblock %}
+
+{% block extra_head %}
+<!-- Google Sign-In -->
+<meta name="google-signin-client_id" content="639621454485-2llcacpdbe4muk5eucrisquhrv103vv4.apps.googleusercontent.com">
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 to-black">
+    <div class="bg-gray-800 p-8 rounded-lg shadow-2xl w-full max-w-md">
+        <!-- Logo/Title -->
+        <div class="text-center mb-8">
+            <div class="text-5xl mb-4">🎬</div>
+            <h1 class="text-3xl font-bold bg-gradient-to-r from-red-400 to-pink-600 bg-clip-text text-transparent">
+                Cinematch
+            </h1>
+            <p class="text-gray-400 mt-2">Sign in to continue</p>
+        </div>
+        
+        <!-- Flash Messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="mb-4 p-3 rounded {% if category == 'error' %}bg-red-600{% else %}bg-green-600{% endif %}">
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <!-- Login Form -->
+        <form method="POST" action="{{ url_for('auth.login') }}">
+            
+            <div class="mb-6">
+                <label for="username" class="block text-sm font-medium mb-2">Username</label>
+                <input type="text" 
+                       id="username" 
+                       name="username" 
+                       required
+                       autofocus
+                       class="w-full p-3 rounded bg-gray-700 text-white focus:ring-2 focus:ring-red-500 focus:outline-none"
+                       placeholder="Enter your username">
+            </div>
+            
+            <div class="mb-6">
+                <label for="password" class="block text-sm font-medium mb-2">Password</label>
+                <input type="password" 
+                       id="password" 
+                       name="password" 
+                       required
+                       class="w-full p-3 rounded bg-gray-700 text-white focus:ring-2 focus:ring-red-500 focus:outline-none"
+                       placeholder="Enter your password">
+            </div>
+            
+            <div class="flex items-center justify-between mb-6">
+                <label class="flex items-center">
+                    <input type="checkbox" name="remember" class="mr-2">
+                    <span class="text-sm">Remember me</span>
+                </label>
+                <a href="{{ url_for('auth.forgot_password') }}" class="text-sm text-blue-400 hover:text-blue-300">
+                    Forgot password?
+                </a>
+            </div>
+            
+            <button type="submit" 
+                    class="w-full bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-4 rounded transition duration-200">
+                Sign In
+            </button>
+        </form>
+        
+        <!-- Social Login Divider -->
+        <div class="my-6 flex items-center">
+            <div class="flex-grow border-t border-gray-600"></div>
+            <span class="px-4 text-sm text-gray-400">Or continue with</span>
+            <div class="flex-grow border-t border-gray-600"></div>
+        </div>
+        
+        <!-- Google Sign-In Button -->
+        <div class="flex justify-center mb-4">
+            <div class="g-signin2" 
+                 data-onsuccess="onSignIn" 
+                 data-theme="dark"
+                 data-width="380"
+                 data-height="50"
+                 data-longtitle="true">
+            </div>
+        </div>
+        
+        <!-- Additional Options -->
+        <div class="mt-6 text-center">
+            <p class="text-sm text-gray-400">
+                Don't have an account? 
+                <a href="{{ url_for('auth.register') }}" class="text-blue-400 hover:text-blue-300">
+                    Register here
+                </a>
+            </p>
+        </div>
+        
+    </div>
+</div>
+
+<!-- Add some animations -->
+<style>
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+    
+    .bg-gray-800 {
+        animation: fadeIn 0.5s ease-out;
+    }
+</style>
+{% endblock %}
+
+{% block extra_scripts %}
+
+<!-- Google Sign-In JavaScript -->
+<script>
+    function onSignIn(googleUser) {
+        var profile = googleUser.getBasicProfile();
+        var id_token = googleUser.getAuthResponse().id_token;
+        
+        // Send token to backend
+        fetch('/auth/google/callback', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                token: id_token,
+                email: profile.getEmail(),
+                name: profile.getName(),
+                picture: profile.getImageUrl()
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Redirect to dashboard or home page
+                window.location.href = data.redirect || '/';
+            } else {
+                alert('Login failed: ' + (data.message || 'Unknown error'));
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('An error occurred during login');
+        });
+    }
+    
+    // Sign out function (optional)
+    function signOut() {
+        var auth2 = gapi.auth2.getAuthInstance();
+        auth2.signOut().then(function () {
+            console.log('User signed out.');
+        });
+    }
+</script>
+{% endblock %}

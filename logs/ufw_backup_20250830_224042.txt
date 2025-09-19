@@ -1,0 +1,3 @@
+> Checking iptables
+> Checking ip6tables
+

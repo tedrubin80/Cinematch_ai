@@ -1,0 +1,194 @@
+{% extends "base.html" %}
+
+{% block title %}Guardrail Logs - Cinematch Admin{% endblock %}
+
+{% block content %}
+<div class="min-h-screen">
+    {% include 'admin/nav.html' %}
+    
+    <div class="container mx-auto px-4 py-8">
+        <h2 class="text-3xl font-bold mb-8">Guardrail Triggered Logs</h2>
+        
+        <!-- Statistics -->
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 mb-8">
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <div class="text-2xl font-bold text-red-400">{{ stats.total_triggers }}</div>
+                <div class="text-sm text-gray-400">Total Triggers</div>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <div class="text-2xl font-bold text-yellow-400">{{ stats.triggers_today }}</div>
+                <div class="text-sm text-gray-400">Today</div>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <div class="text-2xl font-bold text-purple-400">{{ stats.unique_sessions }}</div>
+                <div class="text-sm text-gray-400">Unique Sessions</div>
+            </div>
+            <div class="bg-gray-800 p-4 rounded-lg">
+                <div class="text-2xl font-bold text-green-400">{{ stats.reviewed_percentage }}%</div>
+                <div class="text-sm text-gray-400">Reviewed</div>
+            </div>
+        </div>
+        
+        <!-- Filters -->
+        <div class="bg-gray-800 p-4 rounded-lg mb-6">
+            <form method="GET" class="flex gap-4 items-end">
+                <div>
+                    <label class="block text-sm mb-1">Severity</label>
+                    <select name="severity" class="bg-gray-700 px-3 py-2 rounded">
+                        <option value="">All</option>
+                        <option value="critical" {% if request.args.get('severity') == 'critical' %}selected{% endif %}>Critical</option>
+                        <option value="high" {% if request.args.get('severity') == 'high' %}selected{% endif %}>High</option>
+                        <option value="medium" {% if request.args.get('severity') == 'medium' %}selected{% endif %}>Medium</option>
+                        <option value="low" {% if request.args.get('severity') == 'low' %}selected{% endif %}>Low</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm mb-1">Type</label>
+                    <select name="type" class="bg-gray-700 px-3 py-2 rounded">
+                        <option value="">All</option>
+                        <option value="profanity" {% if request.args.get('type') == 'profanity' %}selected{% endif %}>Profanity</option>
+                        <option value="pii" {% if request.args.get('type') == 'pii' %}selected{% endif %}>PII</option>
+                        <option value="harmful" {% if request.args.get('type') == 'harmful' %}selected{% endif %}>Harmful</option>
+                        <option value="injection" {% if request.args.get('type') == 'injection' %}selected{% endif %}>Injection</option>
+                    </select>
+                </div>
+                
+                <div>
+                    <label class="block text-sm mb-1">Status</label>
+                    <select name="reviewed" class="bg-gray-700 px-3 py-2 rounded">
+                        <option value="">All</option>
+                        <option value="false" {% if request.args.get('reviewed') == 'false' %}selected{% endif %}>Unreviewed</option>
+                        <option value="true" {% if request.args.get('reviewed') == 'true' %}selected{% endif %}>Reviewed</option>
+                    </select>
+                </div>
+                
+                <button type="submit" class="bg-blue-600 hover:bg-blue-700 px-4 py-2 rounded">
+                    Filter
+                </button>
+            </form>
+        </div>
+        
+        <!-- Logs Table -->
+        <div class="bg-gray-800 rounded-lg overflow-hidden">
+            <table class="w-full">
+                <thead>
+                    <tr class="bg-gray-900">
+                        <th class="px-4 py-3 text-left">Time</th>
+                        <th class="px-4 py-3 text-left">Session</th>
+                        <th class="px-4 py-3 text-left">IP Address</th>
+                        <th class="px-4 py-3 text-left">Type</th>
+                        <th class="px-4 py-3 text-left">Severity</th>
+                        <th class="px-4 py-3 text-left">Action</th>
+                        <th class="px-4 py-3 text-left">Status</th>
+                        <th class="px-4 py-3 text-left">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for log in logs.items %}
+                    <tr class="border-t border-gray-700 hover:bg-gray-750">
+                        <td class="px-4 py-3 text-sm">
+                            {{ log.timestamp.strftime('%Y-%m-%d %H:%M:%S') }}
+                        </td>
+                        <td class="px-4 py-3 text-sm font-mono">
+                            {{ log.session_id[:8] }}...
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                            {{ log.ip_address or 'N/A' }}
+                        </td>
+                        <td class="px-4 py-3">
+                            <span class="px-2 py-1 text-xs rounded bg-gray-700">
+                                {{ log.guardrail_type }}
+                            </span>
+                        </td>
+                        <td class="px-4 py-3">
+                            <span class="px-2 py-1 text-xs rounded 
+                                {% if log.severity == 'critical' %}bg-purple-600
+                                {% elif log.severity == 'high' %}bg-red-600
+                                {% elif log.severity == 'medium' %}bg-yellow-600
+                                {% else %}bg-blue-600{% endif %}">
+                                {{ log.severity }}
+                            </span>
+                        </td>
+                        <td class="px-4 py-3 text-sm">
+                            {{ log.action_taken }}
+                        </td>
+                        <td class="px-4 py-3">
+                            {% if log.reviewed %}
+                                <span class="text-green-400">✓ Reviewed</span>
+                            {% else %}
+                                <span class="text-yellow-400">Pending</span>
+                            {% endif %}
+                        </td>
+                        <td class="px-4 py-3">
+                            <button onclick="viewLog('{{ log.id }}')" 
+                                    class="text-blue-400 hover:text-blue-300 mr-2">
+                                View
+                            </button>
+                            {% if not log.reviewed %}
+                                <button onclick="markReviewed('{{ log.id }}')" 
+                                        class="text-green-400 hover:text-green-300">
+                                    Mark Reviewed
+                                </button>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+        <!-- Pagination -->
+        <div class="mt-6 flex justify-between items-center">
+            <div class="text-sm text-gray-400">
+                Showing {{ logs.items|length }} of {{ logs.total }} logs
+            </div>
+            <div class="flex gap-2">
+                {% if logs.has_prev %}
+                    <a href="?page={{ logs.prev_num }}" class="px-3 py-1 bg-gray-700 rounded hover:bg-gray-600">
+                        Previous
+                    </a>
+                {% endif %}
+                
+                {% for page in logs.iter_pages() %}
+                    {% if page %}
+                        <a href="?page={{ page }}" 
+                           class="px-3 py-1 rounded {% if page == logs.page %}bg-red-600{% else %}bg-gray-700 hover:bg-gray-600{% endif %}">
+                            {{ page }}
+                        </a>
+                    {% else %}
+                        <span class="px-3 py-1">...</span>
+                    {% endif %}
+                {% endfor %}
+                
+                {% if logs.has_next %}
+                    <a href="?page={{ logs.next_num }}" class="px-3 py-1 bg-gray-700 rounded hover:bg-gray-600">
+                        Next
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Log Detail Modal -->
+<div id="logModal" class="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center z-50 hidden">
+    <div class="bg-gray-800 p-8 rounded-lg max-w-4xl w-full max-h-[80vh] overflow-y-auto">
+        <h3 class="text-xl font-bold mb-4">Guardrail Log Details</h3>
+        <div id="logDetails" class="space-y-4">
+            <!-- Details loaded here -->
+        </div>
+        <button onclick="closeLogModal()" class="mt-6 bg-gray-600 hover:bg-gray-700 px-4 py-2 rounded">
+            Close
+        </button>
+    </div>
+</div>
+
+<script>
+async function viewLog(logId) {
+    // Fetch log details
+    const response = await fetch(`/admin/guardrail-logs/${logId}`);
+    const log = await response.json();
+    
+    const detailsHtml = `
+        <div class="grid grid-cols-2 gap-4">

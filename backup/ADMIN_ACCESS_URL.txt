@@ -1,0 +1,22 @@
+CINEMATCH ADMIN ACCESS INFORMATION
+=====================================
+
+Full Admin URL: https://cinematch.online/admin-xMVnqTx0K6PbQ_xN4ibNwQ/
+
+Admin Credentials:
+Username: cinema_admin
+Password: 0f30a70aee51d18abaebdb8574adc61b6c4f9924829d50f8
+
+IMPORTANT SECURITY NOTES:
+- This is the secure admin panel URL
+- Keep this information confidential
+- The admin path is intentionally obfuscated for security
+- Regular users will not know this URL exists
+
+Access Instructions:
+1. Go to: https://cinematch.online/admin-xMVnqTx0K6PbQ_xN4ibNwQ/
+   OR
+2. Go to: https://cinematch.online/auth/login
+   Then login with admin credentials (will auto-redirect to admin panel)
+
+Generated: 2025-08-26

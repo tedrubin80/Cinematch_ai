@@ -1,0 +1,126 @@
+{% extends "base.html" %}
+
+{% block title %}Help Center - Cinematch{% endblock %}
+
+{% block extra_head %}
+<style>
+    .help-card {
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .help-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    }
+    .interactive-demo {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        border-radius: 10px;
+        padding: 2rem;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-gray-900 to-black">
+    <div class="container mx-auto px-4 py-8">
+        <div class="text-center mb-12">
+            <h1 class="text-5xl font-bold mb-4 bg-gradient-to-r from-red-400 to-pink-600 bg-clip-text text-transparent">
+                Help Center
+            </h1>
+            <p class="text-xl text-gray-300">Learn how to get the most out of Cinematch's AI</p>
+        </div>
+        
+        <!-- Main Help Categories -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+            <!-- Top-K Parameter -->
+            <a href="{{ url_for('help.top_k_guide') }}" class="help-card bg-gray-800 p-6 rounded-lg hover:bg-gray-700">
+                <div class="text-center">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-semibold mb-2">Top-K Parameter</h3>
+                    <p class="text-gray-400">Control response diversity and creativity</p>
+                    <div class="mt-4 text-sm text-blue-400">Interactive Demo →</div>
+                </div>
+            </a>
+            
+            <!-- Temperature -->
+            <a href="{{ url_for('help.temperature_guide') }}" class="help-card bg-gray-800 p-6 rounded-lg hover:bg-gray-700">
+                <div class="text-center">
+                    <div class="text-4xl mb-4">🌡️</div>
+                    <h3 class="text-xl font-semibold mb-2">Temperature</h3>
+                    <p class="text-gray-400">Adjust randomness and predictability</p>
+                    <div class="mt-4 text-sm text-blue-400">Interactive Demo →</div>
+                </div>
+            </a>
+            
+            <!-- Intent Understanding -->
+            <a href="{{ url_for('help.intent_guide') }}" class="help-card bg-gray-800 p-6 rounded-lg hover:bg-gray-700">
+                <div class="text-center">
+                    <div class="text-4xl mb-4">🧠</div>
+                    <h3 class="text-xl font-semibold mb-2">Intent Understanding</h3>
+                    <p class="text-gray-400">How AI interprets your requests</p>
+                    <div class="mt-4 text-sm text-blue-400">Learn More →</div>
+                </div>
+            </a>
+            
+            <!-- LangChain -->
+            <a href="{{ url_for('help.langchain_guide') }}" class="help-card bg-gray-800 p-6 rounded-lg hover:bg-gray-700">
+                <div class="text-center">
+                    <div class="text-4xl mb-4">🔗</div>
+                    <h3 class="text-xl font-semibold mb-2">LangChain Integration</h3>
+                    <p class="text-gray-400">Advanced AI orchestration</p>
+                    <div class="mt-4 text-sm text-blue-400">Technical Guide →</div>
+                </div>
+            </a>
+            
+            <!-- API Reference -->
+            <a href="#" class="help-card bg-gray-800 p-6 rounded-lg hover:bg-gray-700">
+                <div class="text-center">
+                    <div class="text-4xl mb-4">📡</div>
+                    <h3 class="text-xl font-semibold mb-2">API Reference</h3>
+                    <p class="text-gray-400">Complete API documentation</p>
+                    <div class="mt-4 text-sm text-blue-400">View Docs →</div>
+                </div>
+            </a>
+            
+            <!-- Best Practices -->
+            <a href="#" class="help-card bg-gray-800 p-6 rounded-lg hover:bg-gray-700">
+                <div class="text-center">
+                    <div class="text-4xl mb-4">✨</div>
+                    <h3 class="text-xl font-semibold mb-2">Best Practices</h3>
+                    <p class="text-gray-400">Tips for better results</p>
+                    <div class="mt-4 text-sm text-blue-400">Read Tips →</div>
+                </div>
+            </a>
+        </div>
+        
+        <!-- Quick Start Guide -->
+        <div class="bg-gray-800 rounded-lg p-8">
+            <h2 class="text-2xl font-bold mb-6">Quick Start Guide</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="text-center">
+                    <div class="bg-red-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold">1</span>
+                    </div>
+                    <h4 class="font-semibold mb-2">Verify Your Age</h4>
+                    <p class="text-sm text-gray-400">Cinematch requires users to be 18+</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-red-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold">2</span>
+                    </div>
+                    <h4 class="font-semibold mb-2">Ask for Recommendations</h4>
+                    <p class="text-sm text-gray-400">Describe what you're in the mood for</p>
+                </div>
+                
+                <div class="text-center">
+                    <div class="bg-red-600 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                        <span class="text-white font-bold">3</span>
+                    </div>
+                    <h4 class="font-semibold mb-2">Get AI-Powered Results</h4>
+                    <p class="text-sm text-gray-400">Receive personalized movie suggestions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,784 @@
+<!-- AI Parameter Controls Component -->
+<div id="parameterControls" class="card border-0 shadow-sm">
+    <div class="card-header bg-light border-0 d-flex justify-content-between align-items-center">
+        <h6 class="mb-0 fw-bold">
+            <i class="fas fa-sliders-h me-2 text-primary"></i>AI Parameters
+        </h6>
+        <div class="dropdown">
+            <button class="btn btn-sm btn-outline-secondary dropdown-toggle" type="button" 
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                <i class="fas fa-cog"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end">
+                <li><a class="dropdown-item" href="#" id="resetToDefaults">
+                    <i class="fas fa-undo me-2"></i>Reset to Defaults
+                </a></li>
+                <li><a class="dropdown-item" href="#" id="saveAsPreset">
+                    <i class="fas fa-save me-2"></i>Save as Preset
+                </a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#" id="showParameterHelp">
+                    <i class="fas fa-question-circle me-2"></i>Parameter Guide
+                </a></li>
+            </ul>
+        </div>
+    </div>
+    
+    <div class="card-body">
+        <!-- User Tier Information -->
+        <div id="tierInfo" class="alert alert-info border-0 mb-3 d-none">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <i class="fas fa-info-circle me-2"></i>
+                    <strong id="tierName">Free Tier</strong> - 
+                    <span id="tierDescription">Basic parameter controls</span>
+                </div>
+                <a href="/subscription" class="btn btn-sm btn-primary" id="upgradeButton">
+                    <i class="fas fa-arrow-up me-1"></i>Upgrade
+                </a>
+            </div>
+        </div>
+
+        <!-- Preset Selection -->
+        <div class="mb-4">
+            <label class="form-label fw-bold">
+                <i class="fas fa-magic me-2"></i>Quick Presets
+            </label>
+            <div class="row g-2" id="presetButtons">
+                <!-- Preset buttons will be populated by JavaScript -->
+            </div>
+            <small class="form-text text-muted mt-1">
+                Choose a preset or customize parameters below
+            </small>
+        </div>
+
+        <!-- Parameter Sliders -->
+        <div id="parameterSliders">
+            <!-- Temperature Control -->
+            <div class="parameter-group mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <label class="form-label mb-0 fw-bold">
+                        <i class="fas fa-thermometer-half me-2 text-warning"></i>
+                        Temperature
+                    </label>
+                    <span class="badge bg-secondary" id="temperatureValue">0.7</span>
+                </div>
+                <input type="range" class="form-range parameter-slider" 
+                       id="temperatureSlider" name="temperature"
+                       min="0.0" max="2.0" step="0.1" value="0.7">
+                <div class="d-flex justify-content-between text-muted small">
+                    <span>Deterministic</span>
+                    <span>Balanced</span>
+                    <span>Creative</span>
+                </div>
+                <small class="form-text text-muted">
+                    Controls creativity and randomness in responses
+                </small>
+            </div>
+
+            <!-- Top-K Control -->
+            <div class="parameter-group mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <label class="form-label mb-0 fw-bold">
+                        <i class="fas fa-filter me-2 text-info"></i>
+                        Top-K
+                    </label>
+                    <span class="badge bg-secondary" id="topKValue">40</span>
+                </div>
+                <input type="range" class="form-range parameter-slider" 
+                       id="topKSlider" name="top_k"
+                       min="1" max="100" step="1" value="40">
+                <div class="d-flex justify-content-between text-muted small">
+                    <span>Focused</span>
+                    <span>Balanced</span>
+                    <span>Diverse</span>
+                </div>
+                <small class="form-text text-muted">
+                    Limits word choices to top K most likely options
+                </small>
+            </div>
+
+            <!-- Max Tokens Control -->
+            <div class="parameter-group mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <label class="form-label mb-0 fw-bold">
+                        <i class="fas fa-align-left me-2 text-success"></i>
+                        Max Tokens
+                    </label>
+                    <span class="badge bg-secondary" id="maxTokensValue">800</span>
+                </div>
+                <input type="range" class="form-range parameter-slider" 
+                       id="maxTokensSlider" name="max_tokens"
+                       min="50" max="2000" step="50" value="800">
+                <div class="d-flex justify-content-between text-muted small">
+                    <span>Short</span>
+                    <span>Medium</span>
+                    <span>Long</span>
+                </div>
+                <small class="form-text text-muted">
+                    Maximum length of AI response
+                </small>
+            </div>
+
+            <!-- Frequency Penalty (Advanced) -->
+            <div class="parameter-group mb-4 advanced-parameter">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <label class="form-label mb-0 fw-bold">
+                        <i class="fas fa-repeat me-2 text-danger"></i>
+                        Frequency Penalty
+                        <span class="badge bg-warning text-dark ms-1">Advanced</span>
+                    </label>
+                    <span class="badge bg-secondary" id="frequencyPenaltyValue">0.1</span>
+                </div>
+                <input type="range" class="form-range parameter-slider" 
+                       id="frequencyPenaltySlider" name="frequency_penalty"
+                       min="0.0" max="0.5" step="0.1" value="0.1">
+                <div class="d-flex justify-content-between text-muted small">
+                    <span>No penalty</span>
+                    <span>Moderate</span>
+                    <span>Strong</span>
+                </div>
+                <small class="form-text text-muted">
+                    Reduces repetition of words and phrases
+                </small>
+            </div>
+
+            <!-- Presence Penalty (Advanced) -->
+            <div class="parameter-group mb-3 advanced-parameter">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <label class="form-label mb-0 fw-bold">
+                        <i class="fas fa-plus-circle me-2 text-purple"></i>
+                        Presence Penalty
+                        <span class="badge bg-warning text-dark ms-1">Advanced</span>
+                    </label>
+                    <span class="badge bg-secondary" id="presencePenaltyValue">0.1</span>
+                </div>
+                <input type="range" class="form-range parameter-slider" 
+                       id="presencePenaltySlider" name="presence_penalty"
+                       min="0.0" max="0.5" step="0.1" value="0.1">
+                <div class="d-flex justify-content-between text-muted small">
+                    <span>No penalty</span>
+                    <span>Moderate</span>
+                    <span>Strong</span>
+                </div>
+                <small class="form-text text-muted">
+                    Encourages talking about new topics
+                </small>
+            </div>
+        </div>
+
+        <!-- Advanced Toggle -->
+        <div class="text-center mb-3">
+            <button type="button" class="btn btn-sm btn-outline-secondary" id="toggleAdvanced">
+                <i class="fas fa-cogs me-2"></i>
+                <span id="advancedToggleText">Show Advanced Parameters</span>
+            </button>
+        </div>
+
+        <!-- Parameter Warnings -->
+        <div id="parameterWarnings" class="d-none">
+            <!-- Warnings will be populated by JavaScript -->
+        </div>
+
+        <!-- Recommended Settings -->
+        <div id="recommendedSettings" class="alert alert-light border d-none">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <i class="fas fa-lightbulb me-2 text-warning"></i>
+                    <strong>Recommendation:</strong>
+                    <span id="recommendationText">Try the "Balanced" preset for most queries</span>
+                </div>
+                <button type="button" class="btn btn-sm btn-outline-primary" id="applyRecommendation">
+                    Apply
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Parameter Help Modal -->
+<div id="parameterHelpModal" class="modal fade" tabindex="-1">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">
+                    <i class="fas fa-question-circle me-2"></i>AI Parameter Guide
+                </h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <div class="accordion" id="parameterHelpAccordion">
+                    <!-- Help content will be populated by JavaScript -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Parameter Controls JavaScript
+(function() {
+    'use strict';
+
+    let userTier = 'free';
+    let parameterLimits = {};
+    let availablePresets = {};
+    let currentParameters = {};
+    let isAdvancedVisible = false;
+    let parameterHelpModal;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        initializeParameterControls();
+        parameterHelpModal = new bootstrap.Modal(document.getElementById('parameterHelpModal'));
+    });
+
+    function initializeParameterControls() {
+        loadUserParameterSettings();
+        setupEventListeners();
+        updateParameterDisplay();
+    }
+
+    function loadUserParameterSettings() {
+        fetch('/api/parameter-controls/settings', {
+            method: 'GET',
+            headers: {
+                'X-CSRFToken': getCSRFToken()
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                userTier = data.user_tier;
+                parameterLimits = data.parameter_controls;
+                availablePresets = data.available_presets;
+                
+                updateTierInfo();
+                populatePresets();
+                setupSliders();
+                loadRecommendations(data.recommendations);
+                
+                // Set default parameters
+                setParametersFromLimits();
+            } else {
+                showError('Failed to load parameter settings: ' + (data.error || 'Unknown error'));
+            }
+        })
+        .catch(error => {
+            console.error('Error loading parameter settings:', error);
+            showError('Failed to load parameter settings');
+        });
+    }
+
+    function setupEventListeners() {
+        // Slider change events
+        document.querySelectorAll('.parameter-slider').forEach(slider => {
+            slider.addEventListener('input', handleSliderChange);
+            slider.addEventListener('change', validateParameters);
+        });
+
+        // Button events
+        document.getElementById('resetToDefaults').addEventListener('click', resetToDefaults);
+        document.getElementById('saveAsPreset').addEventListener('click', saveAsPreset);
+        document.getElementById('showParameterHelp').addEventListener('click', showParameterHelp);
+        document.getElementById('toggleAdvanced').addEventListener('click', toggleAdvancedParameters);
+        document.getElementById('applyRecommendation').addEventListener('click', applyRecommendation);
+    }
+
+    function updateTierInfo() {
+        const tierInfo = document.getElementById('tierInfo');
+        const tierName = document.getElementById('tierName');
+        const tierDescription = document.getElementById('tierDescription');
+        const upgradeButton = document.getElementById('upgradeButton');
+
+        const tierDisplayNames = {
+            'free': 'Free Tier',
+            'basic': 'Basic Tier', 
+            'premium': 'Premium Tier'
+        };
+
+        const tierDescriptions = {
+            'free': 'Basic parameter controls with safe limits',
+            'basic': 'Enhanced parameter controls with more flexibility',
+            'premium': 'Full parameter controls with maximum customization'
+        };
+
+        tierName.textContent = tierDisplayNames[userTier] || 'Free Tier';
+        tierDescription.textContent = tierDescriptions[userTier] || '';
+
+        if (userTier !== 'premium') {
+            tierInfo.classList.remove('d-none');
+            upgradeButton.style.display = 'inline-block';
+        } else {
+            upgradeButton.style.display = 'none';
+        }
+    }
+
+    function populatePresets() {
+        const presetContainer = document.getElementById('presetButtons');
+        presetContainer.innerHTML = '';
+
+        Object.entries(availablePresets).forEach(([key, preset]) => {
+            const button = document.createElement('div');
+            button.className = 'col-md-6 col-lg-4';
+            
+            button.innerHTML = `
+                <button type="button" class="btn btn-outline-primary w-100 preset-button" 
+                        data-preset="${key}">
+                    <div class="fw-bold">${preset.name}</div>
+                    <small class="text-muted">${preset.description}</small>
+                </button>
+            `;
+
+            button.querySelector('.preset-button').addEventListener('click', () => applyPreset(key));
+            presetContainer.appendChild(button);
+        });
+    }
+
+    function setupSliders() {
+        Object.entries(parameterLimits).forEach(([paramName, limits]) => {
+            if (paramName === 'allowed_presets') return;
+
+            const slider = document.getElementById(paramName + 'Slider');
+            if (slider) {
+                slider.min = limits.min;
+                slider.max = limits.max;
+                slider.step = limits.step || (typeof limits.default === 'number' ? 
+                    (limits.default % 1 === 0 ? 1 : 0.1) : 0.1);
+                slider.value = limits.default;
+                
+                updateSliderValue(paramName, limits.default);
+            }
+        });
+    }
+
+    function setParametersFromLimits() {
+        Object.entries(parameterLimits).forEach(([paramName, limits]) => {
+            if (paramName !== 'allowed_presets') {
+                currentParameters[paramName] = limits.default;
+            }
+        });
+        updateParameterDisplay();
+    }
+
+    function handleSliderChange(event) {
+        const paramName = event.target.name;
+        const value = parseFloat(event.target.value);
+        
+        currentParameters[paramName] = value;
+        updateSliderValue(paramName, value);
+        
+        // Clear active preset highlighting
+        document.querySelectorAll('.preset-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+
+        // Debounced validation
+        clearTimeout(handleSliderChange.timeout);
+        handleSliderChange.timeout = setTimeout(validateParameters, 300);
+    }
+
+    function updateSliderValue(paramName, value) {
+        const valueDisplay = document.getElementById(paramName + 'Value');
+        if (valueDisplay) {
+            // Format value display
+            if (typeof value === 'number') {
+                if (value % 1 === 0) {
+                    valueDisplay.textContent = value.toString();
+                } else {
+                    valueDisplay.textContent = value.toFixed(1);
+                }
+            } else {
+                valueDisplay.textContent = value;
+            }
+        }
+    }
+
+    function applyPreset(presetKey) {
+        const preset = availablePresets[presetKey];
+        if (!preset) return;
+
+        // Update sliders and current parameters
+        const presetParams = {
+            temperature: preset.temperature,
+            top_k: preset.top_k,
+            max_tokens: preset.max_tokens,
+            frequency_penalty: preset.frequency_penalty,
+            presence_penalty: preset.presence_penalty
+        };
+
+        Object.entries(presetParams).forEach(([paramName, value]) => {
+            const slider = document.getElementById(paramName + 'Slider');
+            if (slider) {
+                slider.value = value;
+                currentParameters[paramName] = value;
+                updateSliderValue(paramName, value);
+            }
+        });
+
+        // Highlight active preset
+        document.querySelectorAll('.preset-button').forEach(btn => {
+            btn.classList.remove('active');
+        });
+        document.querySelector(`[data-preset="${presetKey}"]`).classList.add('active');
+
+        // Show advanced parameters if preset uses them
+        if (preset.frequency_penalty > 0 || preset.presence_penalty > 0) {
+            if (!isAdvancedVisible) {
+                toggleAdvancedParameters();
+            }
+        }
+
+        validateParameters();
+        showSuccess(`Applied "${preset.name}" preset`);
+    }
+
+    function validateParameters() {
+        const warnings = [];
+        
+        // Check parameter combinations and thresholds
+        if (currentParameters.temperature > 1.5) {
+            warnings.push({
+                type: 'warning',
+                message: 'High temperature may produce unpredictable results'
+            });
+        }
+
+        if (currentParameters.temperature > 1.0 && currentParameters.top_k < 20) {
+            warnings.push({
+                type: 'warning', 
+                message: 'High temperature with low top-k may cause repetitive responses'
+            });
+        }
+
+        if (currentParameters.max_tokens > 1500) {
+            warnings.push({
+                type: 'info',
+                message: 'High token limits may increase processing time'
+            });
+        }
+
+        displayWarnings(warnings);
+
+        // Emit parameter change event
+        document.dispatchEvent(new CustomEvent('parametersChanged', {
+            detail: { parameters: currentParameters, warnings: warnings }
+        }));
+    }
+
+    function displayWarnings(warnings) {
+        const warningsContainer = document.getElementById('parameterWarnings');
+        
+        if (warnings.length === 0) {
+            warningsContainer.classList.add('d-none');
+            return;
+        }
+
+        warningsContainer.innerHTML = warnings.map(warning => `
+            <div class="alert alert-${warning.type === 'warning' ? 'warning' : 'info'} 
+                        border-0 py-2 mb-2">
+                <i class="fas fa-${warning.type === 'warning' ? 'exclamation-triangle' : 'info-circle'} me-2"></i>
+                ${warning.message}
+            </div>
+        `).join('');
+
+        warningsContainer.classList.remove('d-none');
+    }
+
+    function toggleAdvancedParameters() {
+        const advancedParams = document.querySelectorAll('.advanced-parameter');
+        const toggleButton = document.getElementById('toggleAdvanced');
+        const toggleText = document.getElementById('advancedToggleText');
+
+        isAdvancedVisible = !isAdvancedVisible;
+
+        advancedParams.forEach(param => {
+            if (isAdvancedVisible) {
+                param.style.display = 'block';
+            } else {
+                param.style.display = 'none';
+            }
+        });
+
+        toggleText.textContent = isAdvancedVisible ? 
+            'Hide Advanced Parameters' : 'Show Advanced Parameters';
+        
+        toggleButton.querySelector('i').className = isAdvancedVisible ?
+            'fas fa-eye-slash me-2' : 'fas fa-cogs me-2';
+    }
+
+    function resetToDefaults() {
+        if (confirm('Reset all parameters to their default values?')) {
+            setParametersFromLimits();
+            
+            // Update sliders
+            Object.entries(currentParameters).forEach(([paramName, value]) => {
+                const slider = document.getElementById(paramName + 'Slider');
+                if (slider) {
+                    slider.value = value;
+                    updateSliderValue(paramName, value);
+                }
+            });
+
+            // Clear active preset
+            document.querySelectorAll('.preset-button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            validateParameters();
+            showSuccess('Parameters reset to defaults');
+        }
+    }
+
+    function saveAsPreset() {
+        // This would open a modal to save custom presets (Premium feature)
+        if (userTier !== 'premium') {
+            showError('Custom presets are available with Premium subscription');
+            return;
+        }
+
+        const presetName = prompt('Enter a name for this preset:');
+        if (presetName) {
+            // Implementation for saving custom presets
+            showSuccess(`Preset "${presetName}" saved successfully`);
+        }
+    }
+
+    function loadRecommendations(recommendations) {
+        if (recommendations && recommendations.preset) {
+            const [presetKey, reason] = recommendations.preset;
+            const recommendationText = document.getElementById('recommendationText');
+            const recommendedSettings = document.getElementById('recommendedSettings');
+
+            recommendationText.textContent = `Try the "${availablePresets[presetKey]?.name}" preset - ${reason}`;
+            recommendedSettings.classList.remove('d-none');
+
+            document.getElementById('applyRecommendation').onclick = () => {
+                applyPreset(presetKey);
+                recommendedSettings.classList.add('d-none');
+            };
+        }
+    }
+
+    function applyRecommendation() {
+        // This will be set by loadRecommendations
+    }
+
+    function showParameterHelp() {
+        populateHelpModal();
+        parameterHelpModal.show();
+    }
+
+    function populateHelpModal() {
+        const accordion = document.getElementById('parameterHelpAccordion');
+        
+        const helpContent = [
+            {
+                title: 'Temperature',
+                icon: 'fas fa-thermometer-half',
+                content: `
+                    <p><strong>Controls creativity and randomness:</strong></p>
+                    <ul>
+                        <li><strong>0.0-0.3:</strong> Very deterministic, consistent responses</li>
+                        <li><strong>0.4-0.7:</strong> Balanced creativity and reliability</li>
+                        <li><strong>0.8-1.2:</strong> More creative and varied responses</li>
+                        <li><strong>1.3-2.0:</strong> Highly creative, potentially unpredictable</li>
+                    </ul>
+                    <p><em>Tip:</em> Use lower values for factual queries, higher for creative tasks.</p>
+                `
+            },
+            {
+                title: 'Top-K',
+                icon: 'fas fa-filter',
+                content: `
+                    <p><strong>Limits word choices to most likely options:</strong></p>
+                    <ul>
+                        <li><strong>1-20:</strong> Very focused, predictable responses</li>
+                        <li><strong>21-50:</strong> Balanced focus and variety</li>
+                        <li><strong>51-100:</strong> Maximum diversity in word choices</li>
+                    </ul>
+                    <p><em>Tip:</em> Combine with temperature - high temp + high top-k = maximum creativity.</p>
+                `
+            },
+            {
+                title: 'Max Tokens',
+                icon: 'fas fa-align-left',
+                content: `
+                    <p><strong>Controls response length:</strong></p>
+                    <ul>
+                        <li><strong>50-200:</strong> Short, concise responses</li>
+                        <li><strong>300-800:</strong> Medium-length, detailed responses</li>
+                        <li><strong>1000+:</strong> Long, comprehensive responses</li>
+                    </ul>
+                    <p><em>Note:</em> Higher limits increase processing time and usage costs.</p>
+                `
+            }
+        ];
+
+        accordion.innerHTML = helpContent.map((item, index) => `
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button ${index === 0 ? '' : 'collapsed'}" 
+                            type="button" data-bs-toggle="collapse" 
+                            data-bs-target="#help${index}">
+                        <i class="${item.icon} me-2 text-primary"></i>
+                        ${item.title}
+                    </button>
+                </h2>
+                <div id="help${index}" class="accordion-collapse collapse ${index === 0 ? 'show' : ''}"
+                     data-bs-parent="#parameterHelpAccordion">
+                    <div class="accordion-body">
+                        ${item.content}
+                    </div>
+                </div>
+            </div>
+        `).join('');
+    }
+
+    function updateParameterDisplay() {
+        // Update any other UI elements that show current parameter values
+    }
+
+    function getCSRFToken() {
+        return document.querySelector('meta[name=csrf-token]')?.getAttribute('content') || '';
+    }
+
+    function showSuccess(message) {
+        // Show success toast
+        showToast(message, 'success');
+    }
+
+    function showError(message) {
+        // Show error toast
+        showToast(message, 'error');
+    }
+
+    function showToast(message, type) {
+        const toastClass = type === 'success' ? 'alert-success' : 'alert-danger';
+        const iconClass = type === 'success' ? 'fas fa-check-circle' : 'fas fa-exclamation-triangle';
+        
+        const toast = document.createElement('div');
+        toast.className = `alert ${toastClass} alert-dismissible fade show position-fixed`;
+        toast.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
+        toast.innerHTML = `
+            <i class="${iconClass} me-2"></i>
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        `;
+
+        document.body.appendChild(toast);
+
+        setTimeout(() => {
+            if (toast.parentNode) {
+                const bsAlert = new bootstrap.Alert(toast);
+                bsAlert.close();
+            }
+        }, 5000);
+    }
+
+    // Global functions
+    window.getAIParameters = function() {
+        return currentParameters;
+    };
+
+    window.setAIParameters = function(params) {
+        Object.assign(currentParameters, params);
+        updateParameterDisplay();
+    };
+
+})();
+</script>
+
+<style>
+/* Parameter Controls Styles */
+#parameterControls .form-range {
+    height: 0.5rem;
+}
+
+#parameterControls .form-range::-webkit-slider-thumb {
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 50%;
+    background: #007bff;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#parameterControls .form-range::-moz-range-thumb {
+    height: 1.2rem;
+    width: 1.2rem;
+    border-radius: 50%;
+    background: #007bff;
+    cursor: pointer;
+    border: 2px solid #fff;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+#parameterControls .parameter-group {
+    padding: 1rem;
+    background: rgba(0,123,255,0.02);
+    border-radius: 0.5rem;
+    border-left: 3px solid #007bff;
+}
+
+#parameterControls .preset-button {
+    height: 70px;
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+}
+
+#parameterControls .preset-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,123,255,0.2);
+}
+
+#parameterControls .preset-button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+#parameterControls .badge {
+    font-size: 0.75rem;
+    padding: 0.35em 0.65em;
+}
+
+#parameterControls .advanced-parameter {
+    display: none;
+    opacity: 0;
+    animation: fadeIn 0.3s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+#parameterControls .text-purple {
+    color: #6f42c1 !important;
+}
+
+#parameterControls .alert {
+    border-radius: 0.5rem;
+}
+
+#parameterControls .dropdown-menu {
+    border: none;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    #parameterControls .parameter-group {
+        margin-bottom: 1rem;
+    }
+    
+    #parameterControls .preset-button {
+        height: auto;
+        padding: 0.75rem;
+    }
+}
+</style>

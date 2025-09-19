@@ -1,0 +1,157 @@
+{% extends "base.html" %}
+
+{% block title %}Top-K Parameter Guide - Cinematch{% endblock %}
+
+{% block extra_head %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<style>
+    .slider-container {
+        background: linear-gradient(to right, #4a5568, #2d3748);
+        border-radius: 10px;
+        padding: 1rem;
+    }
+    .result-box {
+        min-height: 200px;
+        transition: all 0.3s;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-gray-900 to-black">
+    <div class="container mx-auto px-4 py-8 max-w-4xl">
+        <a href="{{ url_for('help.help_center') }}" class="text-blue-400 hover:text-blue-300 mb-4 inline-block">
+            ← Back to Help Center
+        </a>
+        
+        <h1 class="text-4xl font-bold mb-8 bg-gradient-to-r from-red-400 to-pink-600 bg-clip-text text-transparent">
+            Understanding Top-K Parameter
+        </h1>
+        
+        <!-- Interactive Demo -->
+        <div class="bg-gray-800 rounded-lg p-8 mb-8">
+            <h2 class="text-2xl font-semibold mb-6">Interactive Demo</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Adjust Top-K Value</h3>
+                    <div class="slider-container">
+                        <label class="block mb-2">Top-K: <span id="topKValue">10</span></label>
+                        <input type="range" id="topKSlider" min="1" max="100" value="10" 
+                               class="w-full" onchange="updateTopK(this.value)">
+                        <div class="flex justify-between text-xs text-gray-400 mt-1">
+                            <span>1 (Focused)</span>
+                            <span>100 (Diverse)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <label class="block mb-2">Sample Prompt:</label>
+                        <textarea id="samplePrompt" class="w-full p-3 rounded bg-gray-700 text-white" rows="3">
+Recommend a movie similar to Inception
+                        </textarea>
+                        <button onclick="simulateTopK()" 
+                                class="mt-3 bg-red-600 hover:bg-red-700 px-4 py-2 rounded w-full">
+                            Simulate Response
+                        </button>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-medium mb-4">Probability Distribution</h3>
+                    <canvas id="topKChart" width="400" height="300"></canvas>
+                </div>
+            </div>
+            
+            <div class="mt-6">
+                <h3 class="text-lg font-medium mb-4">Simulated Response</h3>
+                <div id="simulatedResponse" class="result-box bg-gray-900 rounded p-4">
+                    <p class="text-gray-400">Adjust the slider and click simulate to see how Top-K affects responses</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Explanation -->
+        <div class="bg-gray-800 rounded-lg p-8 mb-8">
+            <h2 class="text-2xl font-semibold mb-6">What is Top-K?</h2>
+            
+            <div class="prose prose-invert max-w-none">
+                <p class="mb-4 text-gray-300">
+                    Top-K is a parameter that controls how many word choices the AI considers when generating each word 
+                    in its response. It directly affects the diversity and creativity of the output.
+                </p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 my-8">
+                    <div class="bg-gray-700 p-4 rounded">
+                        <h4 class="font-semibold text-red-400 mb-2">Low Top-K (1-10)</h4>
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li>• More predictable responses</li>
+                            <li>• Higher consistency</li>
+                            <li>• Best for factual queries</li>
+                            <li>• Less creative variation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-700 p-4 rounded">
+                        <h4 class="font-semibold text-yellow-400 mb-2">Medium Top-K (10-40)</h4>
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li>• Balanced responses</li>
+                            <li>• Good creativity</li>
+                            <li>• Suitable for most uses</li>
+                            <li>• Natural variation</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-700 p-4 rounded">
+                        <h4 class="font-semibold text-green-400 mb-2">High Top-K (40-100)</h4>
+                        <ul class="text-sm text-gray-300 space-y-1">
+                            <li>• Very diverse responses</li>
+                            <li>• Maximum creativity</li>
+                            <li>• May be less coherent</li>
+                            <li>• Good for brainstorming</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <h3 class="text-xl font-semibold mt-8 mb-4">Use Cases</h3>
+                
+                <div class="bg-gray-700 rounded p-4 mb-4">
+                    <h4 class="font-medium text-blue-400 mb-2">🎯 For Specific Movie Searches (Top-K: 5-10)</h4>
+                    <p class="text-sm text-gray-300">
+                        When looking for movies similar to a specific title or within strict criteria.
+                    </p>
+                    <code class="text-xs bg-gray-800 px-2 py-1 rounded">
+                        "Movies exactly like The Matrix from 1999"
+                    </code>
+                </div>
+                
+                <div class="bg-gray-700 rounded p-4 mb-4">
+                    <h4 class="font-medium text-yellow-400 mb-2">🎨 For General Recommendations (Top-K: 20-30)</h4>
+                    <p class="text-sm text-gray-300">
+                        When exploring movies based on mood or genre preferences.
+                    </p>
+                    <code class="text-xs bg-gray-800 px-2 py-1 rounded">
+                        "Something fun to watch on a Friday night"
+                    </code>
+                </div>
+                
+                <div class="bg-gray-700 rounded p-4">
+                    <h4 class="font-medium text-green-400 mb-2">🌟 For Creative Exploration (Top-K: 40-60)</h4>
+                    <p class="text-sm text-gray-300">
+                        When you want diverse and unexpected recommendations.
+                    </p>
+                    <code class="text-xs bg-gray-800 px-2 py-1 rounded">
+                        "Surprise me with something I've never heard of"
+                    </code>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Best Practices -->
+        <div class="bg-gray-800 rounded-lg p-8">
+            <h2 class="text-2xl font-semibold mb-6">Best Practices</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-lg font-medium mb-3 text-green-400">✅ Do's</h3>
+                    <ul 

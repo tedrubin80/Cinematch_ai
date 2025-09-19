@@ -1,0 +1,491 @@
+<!-- Age Verification Modal -->
+<div id="ageVerificationModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="ageVerificationModalLabel" 
+     aria-hidden="true" data-backdrop="static" data-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content border-0 shadow-lg">
+            <div class="modal-header bg-primary text-white border-0">
+                <h5 class="modal-title" id="ageVerificationModalLabel">
+                    <i class="fas fa-shield-alt me-2"></i>Age Verification Required
+                </h5>
+            </div>
+            <div class="modal-body p-4">
+                <div class="text-center mb-4">
+                    <div class="age-verification-icon mb-3">
+                        <i class="fas fa-calendar-check text-primary" style="font-size: 3rem;"></i>
+                    </div>
+                    <h6 class="fw-bold">Confirm Your Age to Continue</h6>
+                    <p class="text-muted mb-0">
+                        This service contains AI-generated content that requires users to be 18 years or older.
+                        We're required by law to verify your age before you can access our movie recommendation system.
+                    </p>
+                </div>
+
+                <!-- Age Verification Form -->
+                <form id="ageVerificationForm" class="needs-validation" novalidate>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label for="birthMonth" class="form-label">Birth Month</label>
+                            <select class="form-select" id="birthMonth" name="birthMonth" required>
+                                <option value="">Select Month</option>
+                                <option value="01">January</option>
+                                <option value="02">February</option>
+                                <option value="03">March</option>
+                                <option value="04">April</option>
+                                <option value="05">May</option>
+                                <option value="06">June</option>
+                                <option value="07">July</option>
+                                <option value="08">August</option>
+                                <option value="09">September</option>
+                                <option value="10">October</option>
+                                <option value="11">November</option>
+                                <option value="12">December</option>
+                            </select>
+                            <div class="invalid-feedback">Please select your birth month.</div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="birthDay" class="form-label">Day</label>
+                            <select class="form-select" id="birthDay" name="birthDay" required>
+                                <option value="">Day</option>
+                                <!-- Days will be populated by JavaScript -->
+                            </select>
+                            <div class="invalid-feedback">Please select your birth day.</div>
+                        </div>
+                        <div class="col-md-3 mb-3">
+                            <label for="birthYear" class="form-label">Year</label>
+                            <select class="form-select" id="birthYear" name="birthYear" required>
+                                <option value="">Year</option>
+                                <!-- Years will be populated by JavaScript -->
+                            </select>
+                            <div class="invalid-feedback">Please select your birth year.</div>
+                        </div>
+                    </div>
+
+                    <!-- Country Selection for Legal Compliance -->
+                    <div class="mb-3">
+                        <label for="country" class="form-label">Country/Region</label>
+                        <select class="form-select" id="country" name="country" required>
+                            <option value="">Select your country</option>
+                            <option value="US">United States</option>
+                            <option value="CA">Canada</option>
+                            <option value="GB">United Kingdom</option>
+                            <option value="AU">Australia</option>
+                            <option value="DE">Germany</option>
+                            <option value="FR">France</option>
+                            <option value="JP">Japan</option>
+                            <option value="OTHER">Other</option>
+                        </select>
+                        <div class="invalid-feedback">Please select your country.</div>
+                        <small class="form-text text-muted">
+                            Required for legal compliance with regional age verification laws.
+                        </small>
+                    </div>
+
+                    <!-- Legal Agreement -->
+                    <div class="mb-3">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="legalAgreement" name="legalAgreement" required>
+                            <label class="form-check-label" for="legalAgreement">
+                                I confirm that the information provided is accurate and that I am at least 18 years old.
+                                I understand that providing false information is prohibited and may result in account suspension.
+                            </label>
+                            <div class="invalid-feedback">You must confirm your age to continue.</div>
+                        </div>
+                    </div>
+
+                    <!-- Privacy Notice -->
+                    <div class="alert alert-info border-0 mb-3">
+                        <i class="fas fa-info-circle me-2"></i>
+                        <small>
+                            <strong>Privacy Notice:</strong> Your birth date is used solely for age verification 
+                            and legal compliance. We do not store your exact birth date - only that you've been verified as 18+.
+                        </small>
+                    </div>
+
+                    <!-- Error Display -->
+                    <div id="ageVerificationError" class="alert alert-danger d-none" role="alert">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <span id="ageVerificationErrorText"></span>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary btn-lg px-5" id="verifyAgeBtn">
+                            <i class="fas fa-check me-2"></i>Verify My Age
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Under 18 Message (Hidden by default) -->
+                <div id="under18Message" class="text-center d-none">
+                    <div class="alert alert-warning border-0 mb-3">
+                        <i class="fas fa-exclamation-triangle me-2"></i>
+                        <strong>Access Restricted</strong>
+                    </div>
+                    <p class="text-muted">
+                        Unfortunately, our service is only available to users who are 18 years or older.
+                        This restriction is in place to comply with legal requirements and ensure appropriate content access.
+                    </p>
+                    <p class="text-muted mb-0">
+                        <small>If you believe this is an error, please contact our support team.</small>
+                    </p>
+                </div>
+            </div>
+            
+            <div class="modal-footer border-0 pt-0 justify-content-center">
+                <small class="text-muted text-center">
+                    <i class="fas fa-lock me-1"></i>
+                    Your information is secure and protected in accordance with our 
+                    <a href="/privacy" target="_blank">Privacy Policy</a>.
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Age Verification Modal JavaScript
+(function() {
+    'use strict';
+
+    let ageVerificationModal;
+    let isVerificationInProgress = false;
+
+    document.addEventListener('DOMContentLoaded', function() {
+        ageVerificationModal = new bootstrap.Modal(document.getElementById('ageVerificationModal'));
+        initializeAgeVerification();
+    });
+
+    function initializeAgeVerification() {
+        populateDateSelectors();
+        setupFormValidation();
+        checkAgeVerificationStatus();
+    }
+
+    function populateDateSelectors() {
+        // Populate days (1-31)
+        const daySelect = document.getElementById('birthDay');
+        for (let day = 1; day <= 31; day++) {
+            const option = document.createElement('option');
+            option.value = day.toString().padStart(2, '0');
+            option.textContent = day;
+            daySelect.appendChild(option);
+        }
+
+        // Populate years (current year - 120 to current year - 10)
+        const yearSelect = document.getElementById('birthYear');
+        const currentYear = new Date().getFullYear();
+        for (let year = currentYear - 10; year >= currentYear - 120; year--) {
+            const option = document.createElement('option');
+            option.value = year;
+            option.textContent = year;
+            yearSelect.appendChild(option);
+        }
+
+        // Update days when month changes
+        document.getElementById('birthMonth').addEventListener('change', updateDaysForMonth);
+        document.getElementById('birthYear').addEventListener('change', updateDaysForMonth);
+    }
+
+    function updateDaysForMonth() {
+        const monthSelect = document.getElementById('birthMonth');
+        const yearSelect = document.getElementById('birthYear');
+        const daySelect = document.getElementById('birthDay');
+        
+        const month = parseInt(monthSelect.value);
+        const year = parseInt(yearSelect.value);
+        
+        if (month && year) {
+            const daysInMonth = new Date(year, month, 0).getDate();
+            const currentDay = parseInt(daySelect.value);
+            
+            // Remove all day options
+            daySelect.innerHTML = '<option value="">Day</option>';
+            
+            // Add appropriate number of days
+            for (let day = 1; day <= daysInMonth; day++) {
+                const option = document.createElement('option');
+                option.value = day.toString().padStart(2, '0');
+                option.textContent = day;
+                if (day === currentDay && day <= daysInMonth) {
+                    option.selected = true;
+                }
+                daySelect.appendChild(option);
+            }
+        }
+    }
+
+    function setupFormValidation() {
+        const form = document.getElementById('ageVerificationForm');
+        form.addEventListener('submit', handleAgeVerification);
+
+        // Real-time validation feedback
+        const inputs = form.querySelectorAll('input, select');
+        inputs.forEach(input => {
+            input.addEventListener('change', function() {
+                if (this.checkValidity()) {
+                    this.classList.remove('is-invalid');
+                    this.classList.add('is-valid');
+                } else {
+                    this.classList.remove('is-valid');
+                    this.classList.add('is-invalid');
+                }
+            });
+        });
+    }
+
+    function handleAgeVerification(event) {
+        event.preventDefault();
+        
+        if (isVerificationInProgress) return;
+        
+        const form = event.target;
+        
+        // Validate form
+        if (!form.checkValidity()) {
+            event.stopPropagation();
+            form.classList.add('was-validated');
+            return;
+        }
+
+        const formData = new FormData(form);
+        const birthData = {
+            month: formData.get('birthMonth'),
+            day: formData.get('birthDay'),
+            year: formData.get('birthYear'),
+            country: formData.get('country'),
+            legal_agreement: formData.get('legalAgreement') === 'on'
+        };
+
+        // Calculate age
+        const birthDate = new Date(birthData.year, birthData.month - 1, birthData.day);
+        const today = new Date();
+        const age = Math.floor((today - birthDate) / (365.25 * 24 * 60 * 60 * 1000));
+
+        if (age < 18) {
+            showUnder18Message();
+            return;
+        }
+
+        // Proceed with verification
+        submitAgeVerification(birthData, age);
+    }
+
+    function submitAgeVerification(birthData, age) {
+        isVerificationInProgress = true;
+        const submitBtn = document.getElementById('verifyAgeBtn');
+        const originalText = submitBtn.innerHTML;
+        
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Verifying...';
+        submitBtn.disabled = true;
+
+        // Hide any previous errors
+        hideError();
+
+        fetch('/api/verify-age', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCSRFToken()
+            },
+            body: JSON.stringify({
+                birth_month: birthData.month,
+                birth_day: birthData.day,
+                birth_year: birthData.year,
+                country: birthData.country,
+                age: age,
+                legal_agreement: birthData.legal_agreement
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Store verification status
+                sessionStorage.setItem('ageVerified', 'true');
+                sessionStorage.setItem('ageVerificationToken', data.verification_token);
+                
+                // Close modal and proceed
+                ageVerificationModal.hide();
+                
+                // Show success message
+                showSuccessMessage('Age verified successfully! You can now access all features.');
+                
+                // Trigger custom event
+                document.dispatchEvent(new CustomEvent('ageVerified', { 
+                    detail: { age: age, country: birthData.country } 
+                }));
+                
+            } else {
+                showError(data.error || 'Verification failed. Please try again.');
+            }
+        })
+        .catch(error => {
+            console.error('Age verification error:', error);
+            showError('An error occurred during verification. Please try again.');
+        })
+        .finally(() => {
+            isVerificationInProgress = false;
+            submitBtn.innerHTML = originalText;
+            submitBtn.disabled = false;
+        });
+    }
+
+    function showUnder18Message() {
+        // Hide form and show under 18 message
+        document.getElementById('ageVerificationForm').classList.add('d-none');
+        document.getElementById('under18Message').classList.remove('d-none');
+        
+        // Change modal title
+        document.getElementById('ageVerificationModalLabel').innerHTML = 
+            '<i class="fas fa-exclamation-triangle me-2"></i>Access Restricted';
+    }
+
+    function showError(message) {
+        const errorDiv = document.getElementById('ageVerificationError');
+        const errorText = document.getElementById('ageVerificationErrorText');
+        
+        errorText.textContent = message;
+        errorDiv.classList.remove('d-none');
+        
+        // Scroll to error message
+        errorDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+
+    function hideError() {
+        document.getElementById('ageVerificationError').classList.add('d-none');
+    }
+
+    function checkAgeVerificationStatus() {
+        // Check if already verified in this session
+        if (sessionStorage.getItem('ageVerified') === 'true') {
+            return;
+        }
+
+        // Check with server
+        fetch('/api/check-age-verification', {
+            method: 'GET',
+            headers: {
+                'X-CSRFToken': getCSRFToken()
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (!data.verified) {
+                // Show modal after a brief delay for better UX
+                setTimeout(() => {
+                    ageVerificationModal.show();
+                }, 500);
+            } else {
+                sessionStorage.setItem('ageVerified', 'true');
+                if (data.verification_token) {
+                    sessionStorage.setItem('ageVerificationToken', data.verification_token);
+                }
+            }
+        })
+        .catch(error => {
+            console.error('Error checking age verification:', error);
+            // Show modal on error to be safe
+            setTimeout(() => {
+                ageVerificationModal.show();
+            }, 500);
+        });
+    }
+
+    function getCSRFToken() {
+        return document.querySelector('meta[name=csrf-token]')?.getAttribute('content') || '';
+    }
+
+    function showSuccessMessage(message) {
+        // Create and show a success toast/alert
+        const alertHTML = `
+            <div class="alert alert-success alert-dismissible fade show position-fixed" 
+                 style="top: 20px; right: 20px; z-index: 9999; min-width: 300px;" role="alert">
+                <i class="fas fa-check-circle me-2"></i>
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+        `;
+        
+        document.body.insertAdjacentHTML('beforeend', alertHTML);
+        
+        // Auto-remove after 5 seconds
+        setTimeout(() => {
+            const alert = document.querySelector('.alert-success');
+            if (alert) {
+                const bsAlert = new bootstrap.Alert(alert);
+                bsAlert.close();
+            }
+        }, 5000);
+    }
+
+    // Global function to manually show age verification modal
+    window.showAgeVerificationModal = function() {
+        ageVerificationModal.show();
+    };
+
+    // Global function to check if age is verified
+    window.isAgeVerified = function() {
+        return sessionStorage.getItem('ageVerified') === 'true';
+    };
+
+})();
+</script>
+
+<style>
+/* Age Verification Modal Styles */
+#ageVerificationModal .modal-content {
+    border-radius: 1rem;
+    overflow: hidden;
+}
+
+#ageVerificationModal .age-verification-icon {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+#ageVerificationModal .form-select:focus,
+#ageVerificationModal .form-check-input:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+#ageVerificationModal .btn-primary {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border: none;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+#ageVerificationModal .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+#ageVerificationModal .alert {
+    border-radius: 0.5rem;
+}
+
+#ageVerificationModal .form-select.is-valid,
+#ageVerificationModal .form-check-input.is-valid {
+    border-color: #28a745;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%2328a745' d='m2.3 6.73.94-.94 1.93 1.93L8.23 4.65 9.17 5.6 5.17 9.6z'/%3e%3c/svg%3e");
+}
+
+#ageVerificationModal .form-select.is-invalid,
+#ageVerificationModal .form-check-input.is-invalid {
+    border-color: #dc3545;
+}
+
+@media (max-width: 768px) {
+    #ageVerificationModal .modal-dialog {
+        margin: 1rem;
+    }
+    
+    #ageVerificationModal .col-md-3 {
+        margin-bottom: 1rem !important;
+    }
+}
+</style>

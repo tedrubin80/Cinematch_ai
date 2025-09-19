@@ -1,0 +1,115 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Cinematch - AI Movie Recommendations{% endblock %}</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Modern Light Theme CSS */
+        body {
+            background-color: #f8fafc !important; /* Light background */
+            color: #1e293b !important; /* Dark text */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .bg-gray-900 { background-color: #ffffff !important; }
+        .bg-gray-800 { background-color: #f8fafc !important; }
+        .bg-gray-700 { background-color: #e2e8f0 !important; }
+        .text-white { color: #1e293b !important; }
+        .text-red-500 { color: #ea580c !important; }
+        .text-gray-300 { color: #475569 !important; }
+        .text-gray-400 { color: #64748b !important; }
+        .min-h-screen { min-height: 100vh !important; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1rem; }
+        .flex { display: flex !important; }
+        .items-center { align-items: center !important; }
+        .justify-between { justify-content: space-between !important; }
+        .space-x-4 > * + * { margin-left: 1rem !important; }
+        .rounded-lg { border-radius: 0.5rem !important; }
+        .p-6 { padding: 1.5rem !important; }
+        .px-4 { padding-left: 1rem; padding-right: 1rem; }
+        .py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+        .mb-4 { margin-bottom: 1rem !important; }
+        .mb-8 { margin-bottom: 2rem !important; }
+        .text-center { text-align: center !important; }
+        .font-bold { font-weight: 700 !important; }
+        .text-3xl { font-size: 1.875rem !important; }
+        .text-4xl { font-size: 2.25rem !important; }
+        .text-xl { font-size: 1.25rem !important; }
+        .shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important; }
+        .shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1) !important; }
+        .hover\:text-white:hover { color: #1e293b !important; }
+        .hover\:bg-red-700:hover { background-color: #ea580c !important; }
+        .bg-red-600 { background-color: #ea580c !important; }
+        
+        /* Chat interface styles */
+        .h-96 { height: 24rem !important; }
+        .overflow-y-auto { overflow-y: auto !important; }
+        .flex-1 { flex: 1 1 0% !important; }
+        .space-x-2 > * + * { margin-left: 0.5rem !important; }
+        .space-x-3 > * + * { margin-left: 0.75rem !important; }
+        .items-start { align-items: flex-start !important; }
+        .flex-shrink-0 { flex-shrink: 0 !important; }
+        .ml-3 { margin-left: 0.75rem !important; }
+        .mr-2 { margin-right: 0.5rem !important; }
+        .mt-4 { margin-top: 1rem !important; }
+        .py-3 { padding-top: 0.75rem; padding-bottom: 0.75rem; }
+        .px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+        .text-2xl { font-size: 1.5rem !important; }
+        .focus\:outline-none:focus { outline: 2px solid transparent !important; }
+        .focus\:ring-2:focus { box-shadow: 0 0 0 2px #ef4444 !important; }
+        .focus\:ring-red-500:focus { box-shadow: 0 0 0 2px #ef4444 !important; }
+        .transition { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; }
+        .duration-300 { transition-duration: 300ms !important; }
+        .cursor-not-allowed { cursor: not-allowed !important; }
+        .opacity-50 { opacity: 0.5 !important; }
+        .underline { text-decoration: underline !important; }
+        .text-yellow-400 { color: #fbbf24 !important; }
+        .border-t { border-top-width: 1px !important; }
+        .border-gray-700 { border-color: #374151 !important; }
+        .pt-4 { padding-top: 1rem !important; }
+        .text-sm { font-size: 0.875rem !important; }
+        .hidden { display: none !important; }
+        .grid { display: grid !important; }
+        .grid-cols-2 { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+        .gap-4 { gap: 1rem !important; }
+        .max-w-4xl { max-width: 56rem !important; }
+        .mx-auto { margin-left: auto !important; margin-right: auto !important; }
+        
+        /* Login page centering styles */
+        .justify-center { justify-content: center !important; }
+        .max-w-md { max-width: 28rem !important; }
+        .w-full { width: 100% !important; }
+        .p-8 { padding: 2rem !important; }
+        .mb-6 { margin-bottom: 1.5rem !important; }
+        .mt-2 { margin-top: 0.5rem !important; }
+        .mt-6 { margin-top: 1.5rem !important; }
+        .block { display: block !important; }
+        .text-transparent { color: transparent !important; }
+        .bg-clip-text { background-clip: text !important; }
+        .text-5xl { font-size: 3rem !important; }
+        .focus\:ring-red-500:focus { box-shadow: 0 0 0 2px #ef4444 !important; }
+        .bg-gradient-to-br { background-image: linear-gradient(to bottom right, var(--tw-gradient-stops)) !important; }
+        .from-gray-900 { --tw-gradient-from: #111827 !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent) !important; }
+        .to-black { --tw-gradient-to: #000000 !important; }
+        .bg-gradient-to-r { background-image: linear-gradient(to right, var(--tw-gradient-stops)) !important; }
+        .from-red-400 { --tw-gradient-from: #f87171 !important; --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to, transparent) !important; }
+        .to-pink-600 { --tw-gradient-to: #db2777 !important; }
+        .text-blue-400 { color: #60a5fa !important; }
+        .hover\:text-blue-300:hover { color: #93c5fd !important; }
+        .bg-green-600 { background-color: #16a34a !important; }
+        .mr-2 { margin-right: 0.5rem !important; }
+    </style>
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+    {% block content %}{% endblock %}
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    {% block extra_scripts %}{% endblock %}
+    <!-- Clean end -->
+</body>
+</html>

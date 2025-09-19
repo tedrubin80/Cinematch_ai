@@ -1,0 +1,1357 @@
+2025-08-25 20:05:54,466 INFO: Cinematch startup [in /var/www/cinematch/app.py:154]
+2025-08-25 20:05:56,186 INFO: Cinematch startup [in /var/www/cinematch/app.py:154]
+2025-08-25 20:06:05,241 INFO: Cinematch startup [in /var/www/cinematch/app.py:154]
+2025-08-25 20:06:16,013 INFO: Cinematch startup [in /var/www/cinematch/app.py:154]
+2025-08-25 20:15:54,371 INFO: Cinematch startup [in /var/www/cinematch/app.py:154]
+2025-08-25 20:16:05,321 INFO: Cinematch startup [in /var/www/cinematch/app.py:154]
+2025-08-25 20:16:09,879 INFO: Cinematch startup [in /var/www/cinematch/app.py:154]
+2025-08-25 20:16:20,773 INFO: Cinematch startup [in /var/www/cinematch/app.py:154]
+2025-08-25 20:18:02,479 INFO: Cinematch startup [in /var/www/cinematch/app.py:154]
+2025-08-25 20:18:56,550 INFO: Cinematch startup [in /var/www/cinematch/app.py:154]
+2025-08-25 20:19:33,250 INFO: Cinematch startup [in /var/www/cinematch/app.py:154]
+2025-08-25 20:19:44,500 INFO: Cinematch startup [in /var/www/cinematch/app.py:154]
+2025-08-25 20:20:05,498 INFO: Cinematch startup [in /var/www/cinematch/app.py:154]
+2025-08-25 20:20:18,919 ERROR: Exception on / [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1482, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1974, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 187, in session_security
+    app.permanent_session_lifetime = timedelta(minutes=30)
+                                     ^^^^^^^^^
+NameError: name 'timedelta' is not defined
+2025-08-25 20:20:40,212 INFO: Cinematch startup [in /var/www/cinematch/app.py:154]
+2025-08-25 20:21:59,830 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:22:08,008 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:22:08,241 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:22:08,241 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:22:15,623 ERROR: Exception on /auth/login [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1482, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1974, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 192, in session_security
+    elif datetime.utcnow() - session['session_regenerated'] > timedelta(minutes=15):
+         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+2025-08-25 20:22:42,261 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:33:25,067 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:33:25,302 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:33:25,302 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:33:30,005 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:33:30,244 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:33:30,244 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:33:35,186 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:33:35,421 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:33:35,421 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:33:42,577 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:33:42,800 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:33:42,800 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:34:32,798 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:34:33,032 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:34:33,032 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:34:47,730 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:34:47,972 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 20:34:47,972 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 23:46:42,312 ERROR: Exception on /favicon.ico [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1482, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1974, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 192, in session_security
+    elif datetime.utcnow() - session['session_regenerated'] > timedelta(minutes=15):
+         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+2025-08-25 23:46:46,778 ERROR: Exception on /auth/login [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1482, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1974, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 192, in session_security
+    elif datetime.utcnow() - session['session_regenerated'] > timedelta(minutes=15):
+         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+2025-08-25 23:46:49,111 ERROR: Exception on / [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1482, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1974, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 192, in session_security
+    elif datetime.utcnow() - session['session_regenerated'] > timedelta(minutes=15):
+         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+2025-08-25 23:54:48,633 ERROR: Exception on /auth/login [POST] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 40, in login
+    user = User.query.filter_by(username=username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2747, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2846, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2246, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2129, in _execute_internal
+    bind = self.get_bind(**bind_arguments)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_sqlalchemy/session.py", line 53, in get_bind
+    engines = self._db.engines
+              ^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 642, in engines
+    raise RuntimeError(
+RuntimeError: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2025-08-25 23:54:48,740 ERROR: Exception on /auth/login [POST] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 40, in login
+    user = User.query.filter_by(username=username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2747, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2846, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2246, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2129, in _execute_internal
+    bind = self.get_bind(**bind_arguments)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_sqlalchemy/session.py", line 53, in get_bind
+    engines = self._db.engines
+              ^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 642, in engines
+    raise RuntimeError(
+RuntimeError: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2025-08-25 23:55:43,208 INFO: Cinematch startup [in /var/www/cinematch/app.py:155]
+2025-08-25 23:55:43,474 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:214]
+2025-08-25 23:55:46,014 ERROR: Exception on /auth/login [POST] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 40, in login
+    user = User.query.filter_by(username=username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2747, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2846, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2246, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2129, in _execute_internal
+    bind = self.get_bind(**bind_arguments)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_sqlalchemy/session.py", line 53, in get_bind
+    engines = self._db.engines
+              ^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_sqlalchemy/extension.py", line 642, in engines
+    raise RuntimeError(
+RuntimeError: The current Flask app is not registered with this 'SQLAlchemy' instance. Did you forget to call 'init_app', or did you create multiple 'SQLAlchemy' instances?
+2025-08-25 23:57:04,472 INFO: Cinematch startup [in /var/www/cinematch/app.py:156]
+2025-08-25 23:57:04,623 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:216]
+2025-08-25 23:57:06,005 ERROR: Exception on /auth/login [POST] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
+    self.dialect.do_execute(
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+psycopg2.errors.UndefinedTable: relation "users" does not exist
+LINE 2: FROM users 
+             ^
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 40, in login
+    user = User.query.filter_by(username=username).first()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2747, in first
+    return self.limit(1)._iter().first()  # type: ignore
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/query.py", line 2846, in _iter
+    result: Union[ScalarResult[_T], Result[_T]] = self.session.execute(
+                                                  ^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2246, in execute
+    return self._execute_internal(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/session.py", line 2141, in _execute_internal
+    result: Result[Any] = compile_state_cls.orm_execute_statement(
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/orm/context.py", line 293, in orm_execute_statement
+    result = conn.execute(
+             ^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1412, in execute
+    return meth(
+           ^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/sql/elements.py", line 483, in _execute_on_connection
+    return connection._execute_clauseelement(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1635, in _execute_clauseelement
+    ret = self._execute_context(
+          ^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1844, in _execute_context
+    return self._exec_single_context(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1984, in _exec_single_context
+    self._handle_dbapi_exception(
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 2339, in _handle_dbapi_exception
+    raise sqlalchemy_exception.with_traceback(exc_info[2]) from e
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/engine/base.py", line 1965, in _exec_single_context
+    self.dialect.do_execute(
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/sqlalchemy/engine/default.py", line 921, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.ProgrammingError: (psycopg2.errors.UndefinedTable) relation "users" does not exist
+LINE 2: FROM users 
+             ^
+
+[SQL: SELECT users.id AS users_id, users.username AS users_username, users.email AS users_email, users.password_hash AS users_password_hash, users.is_admin AS users_is_admin, users.is_active AS users_is_active, users.is_verified AS users_is_verified, users.verification_token AS users_verification_token, users.verification_token_expiry AS users_verification_token_expiry, users.created_at AS users_created_at, users.updated_at AS users_updated_at, users.last_login AS users_last_login, users.failed_login_attempts AS users_failed_login_attempts, users.account_locked_until AS users_account_locked_until, users.reset_token AS users_reset_token, users.reset_token_expiry AS users_reset_token_expiry, users.two_factor_secret AS users_two_factor_secret, users.two_factor_enabled AS users_two_factor_enabled 
+FROM users 
+WHERE users.username = %(username_1)s 
+ LIMIT %(param_1)s]
+[parameters: {'username_1': 'admin', 'param_1': 1}]
+(Background on this error at: https://sqlalche.me/e/20/f405)
+2025-08-25 23:57:31,180 INFO: Cinematch startup [in /var/www/cinematch/app.py:156]
+2025-08-25 23:57:31,282 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:216]
+2025-08-25 23:57:38,732 INFO: Cinematch startup [in /var/www/cinematch/app.py:156]
+2025-08-25 23:57:38,826 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:216]
+2025-08-25 23:57:44,143 INFO: Cinematch startup [in /var/www/cinematch/app.py:156]
+2025-08-25 23:57:44,244 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:216]
+2025-08-25 23:57:48,306 INFO: Cinematch startup [in /var/www/cinematch/app.py:156]
+2025-08-25 23:57:48,398 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:216]
+2025-08-25 23:57:59,403 ERROR: Exception on / [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1482, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1974, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/safety_integration.py", line 103, in safety_before_request
+    if not age_verification_manager.check_verification_status(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AgeVerificationManager' object has no attribute 'check_verification_status'. Did you mean: 'get_verification_stats'?
+2025-08-25 23:58:00,152 INFO: Cinematch startup [in /var/www/cinematch/app.py:156]
+2025-08-25 23:58:00,248 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:216]
+2025-08-25 23:58:44,314 INFO: Cinematch startup [in /var/www/cinematch/app.py:156]
+2025-08-25 23:58:44,406 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:216]
+2025-08-25 23:59:11,820 ERROR: Exception on / [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1482, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1974, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/safety_integration.py", line 103, in safety_before_request
+    if not age_verification_manager.check_verification_status(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AgeVerificationManager' object has no attribute 'check_verification_status'. Did you mean: 'get_verification_stats'?
+2025-08-25 23:59:22,053 ERROR: Exception on /admin-xMVnqTx0K6PbQ_xN4ibNwQ/ [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1482, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1974, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 192, in session_security
+    elif datetime.utcnow() - session['session_regenerated'] > timedelta(minutes=15):
+         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+2025-08-26 00:03:53,362 ERROR: Exception on / [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1482, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1974, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 192, in session_security
+    elif datetime.utcnow() - session['session_regenerated'] > timedelta(minutes=15):
+         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+2025-08-26 00:03:53,430 ERROR: Exception on /[URL_REDACTED] [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1482, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1974, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 192, in session_security
+    elif datetime.utcnow() - session['session_regenerated'] > timedelta(minutes=15):
+         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+2025-08-26 00:03:56,311 ERROR: Exception on / [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1482, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1974, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 192, in session_security
+    elif datetime.utcnow() - session['session_regenerated'] > timedelta(minutes=15):
+         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+2025-08-26 00:03:56,373 ERROR: Exception on /[URL_REDACTED] [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1482, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1974, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 192, in session_security
+    elif datetime.utcnow() - session['session_regenerated'] > timedelta(minutes=15):
+         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+2025-08-26 00:03:59,974 ERROR: Exception on / [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1482, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1974, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 192, in session_security
+    elif datetime.utcnow() - session['session_regenerated'] > timedelta(minutes=15):
+         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+2025-08-26 00:04:00,037 ERROR: Exception on /[URL_REDACTED] [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1482, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1974, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 192, in session_security
+    elif datetime.utcnow() - session['session_regenerated'] > timedelta(minutes=15):
+         ~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can't subtract offset-naive and offset-aware datetimes
+2025-08-26 00:04:48,754 INFO: Cinematch startup [in /var/www/cinematch/app.py:156]
+2025-08-26 00:04:48,895 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:216]
+2025-08-26 00:04:54,825 ERROR: Exception on / [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1482, in full_dispatch_request
+    rv = self.preprocess_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1974, in preprocess_request
+    rv = self.ensure_sync(before_func)()
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/safety_integration.py", line 103, in safety_before_request
+    if not age_verification_manager.check_verification_status(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'AgeVerificationManager' object has no attribute 'check_verification_status'. Did you mean: 'get_verification_stats'?
+2025-08-26 00:05:46,520 INFO: Cinematch startup [in /var/www/cinematch/app.py:156]
+2025-08-26 00:05:46,653 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:216]
+2025-08-26 00:09:21,857 INFO: Cinematch startup [in /var/www/cinematch/app.py:156]
+2025-08-26 00:09:21,995 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:216]
+2025-08-26 00:12:31,463 ERROR: Exception on /auth/forgot-password [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 157, in forgot_password
+    return render_template('auth/forgot_password.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: auth/forgot_password.html
+2025-08-26 00:13:31,956 ERROR: Exception on /auth/forgot-password [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 157, in forgot_password
+    return render_template('auth/forgot_password.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: auth/forgot_password.html
+2025-08-26 00:13:41,957 ERROR: Exception on /auth/forgot-password [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/auth.py", line 157, in forgot_password
+    return render_template('auth/forgot_password.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 150, in render_template
+    template = app.jinja_env.get_or_select_template(template_name_or_list)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1087, in get_or_select_template
+    return self.get_template(template_name_or_list, parent, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1016, in get_template
+    return self._load_template(name, globals)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 975, in _load_template
+    template = self.loader.load(self, name, self.make_globals(globals))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/loaders.py", line 126, in load
+    source, filename, uptodate = self.get_source(environment, name)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 64, in get_source
+    return self._get_source_fast(environment, template)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 98, in _get_source_fast
+    raise TemplateNotFound(template)
+jinja2.exceptions.TemplateNotFound: auth/forgot_password.html
+2025-08-26 00:18:15,515 INFO: Cinematch startup [in /var/www/cinematch/app.py:156]
+2025-08-26 00:18:15,652 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:216]
+2025-08-26 00:22:15,644 INFO: Cinematch startup [in /var/www/cinematch/app.py:156]
+2025-08-26 00:22:15,792 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:216]
+2025-08-26 00:30:34,789 INFO: Cinematch startup [in /var/www/cinematch/app.py:156]
+2025-08-26 00:30:34,931 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:216]
+2025-08-26 00:33:49,762 INFO: Cinematch startup [in /var/www/cinematch/app.py:163]
+2025-08-26 00:33:49,899 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:223]
+2025-08-26 00:35:31,773 INFO: Cinematch startup [in /var/www/cinematch/app.py:163]
+2025-08-26 00:35:31,928 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:223]
+2025-08-26 00:37:53,810 INFO: Cinematch startup [in /var/www/cinematch/app.py:163]
+2025-08-26 00:37:53,945 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:223]
+2025-08-26 00:38:45,622 INFO: Cinematch startup [in /var/www/cinematch/app.py:163]
+2025-08-26 00:38:45,771 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:223]
+2025-08-26 00:39:51,422 INFO: Cinematch startup [in /var/www/cinematch/app.py:163]
+2025-08-26 00:39:51,565 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:223]
+2025-08-26 00:42:38,096 INFO: Cinematch startup [in /var/www/cinematch/app.py:163]
+2025-08-26 00:42:38,239 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:223]
+2025-08-26 00:42:52,626 INFO: Cinematch startup [in /var/www/cinematch/app.py:163]
+2025-08-26 00:42:52,766 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:223]
+2025-08-26 00:46:00,420 INFO: Cinematch startup [in /var/www/cinematch/app.py:163]
+2025-08-26 00:46:00,586 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:223]
+2025-08-30 22:03:43,055 INFO: Cinematch startup [in /var/www/cinematch/app.py:163]
+2025-08-30 22:03:43,192 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:223]
+2025-08-30 22:20:45,831 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-30 22:20:57,880 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-30 22:21:09,887 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-30 22:21:21,926 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-30 22:21:33,929 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-30 22:21:34,782 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:271]
+2025-08-30 22:21:34,792 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-30 22:21:52,155 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-30 22:21:52,946 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:271]
+2025-08-30 22:21:52,956 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-30 22:24:32,312 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-30 22:24:33,071 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:271]
+2025-08-30 22:24:33,081 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 00:35:59,178 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 00:36:00,050 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:271]
+2025-08-31 00:36:00,061 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 00:48:33,843 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 00:48:34,746 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:271]
+2025-08-31 00:48:34,757 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 00:50:30,274 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 00:50:31,136 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:271]
+2025-08-31 00:50:31,148 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 00:53:25,422 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 00:53:26,271 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:271]
+2025-08-31 00:53:26,282 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 00:56:59,858 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 00:57:00,773 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:271]
+2025-08-31 00:57:00,784 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 00:59:01,905 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 00:59:02,737 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:271]
+2025-08-31 00:59:02,747 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 00:59:14,255 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 00:59:15,043 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:271]
+2025-08-31 00:59:15,048 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 00:59:42,449 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 00:59:43,238 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:271]
+2025-08-31 00:59:43,243 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 01:07:02,298 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 01:07:03,140 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:271]
+2025-08-31 01:07:03,145 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 01:08:16,431 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 01:08:17,269 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:271]
+2025-08-31 01:08:17,274 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 01:09:45,267 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 01:09:46,050 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:271]
+2025-08-31 01:09:46,055 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 01:13:22,358 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 01:13:23,149 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:271]
+2025-08-31 01:13:23,153 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 01:36:50,089 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 01:36:50,965 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 01:36:50,970 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 01:36:55,738 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 01:36:56,619 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 01:36:56,624 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 01:37:15,118 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 01:37:15,973 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 01:37:15,978 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 01:44:05,994 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 01:44:06,849 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 01:44:06,854 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 01:53:37,899 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 01:53:38,764 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 01:53:38,768 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 01:54:58,192 ERROR: Exception on /api/chat [POST] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_limiter/extension.py", line 1191, in __inner
+    R, flask.current_app.ensure_sync(cast(Callable[P, R], obj))(*a, **k)
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/app.py", line 282, in chat_api
+    from movie_agent import MovieAgent
+  File "/var/www/cinematch/movie_agent.py", line 7, in <module>
+    from langchain_anthropic import ChatAnthropic
+ImportError: cannot import name 'ChatAnthropic' from 'langchain_anthropic' (/var/www/cinematch/venv/lib/python3.12/site-packages/langchain_anthropic/__init__.py)
+2025-08-31 01:55:13,770 ERROR: Exception on /api/chat [POST] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_login/utils.py", line 290, in decorated_view
+    return current_app.ensure_sync(func)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_limiter/extension.py", line 1191, in __inner
+    R, flask.current_app.ensure_sync(cast(Callable[P, R], obj))(*a, **k)
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/app.py", line 282, in chat_api
+    from movie_agent import MovieAgent
+  File "/var/www/cinematch/movie_agent.py", line 7, in <module>
+    from langchain_anthropic import ChatAnthropic
+ImportError: cannot import name 'ChatAnthropic' from 'langchain_anthropic' (/var/www/cinematch/venv/lib/python3.12/site-packages/langchain_anthropic/__init__.py)
+2025-08-31 01:56:22,344 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 01:56:23,195 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 01:56:23,200 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 01:56:55,946 ERROR: Chat API error: 'CineBotService' object has no attribute 'get_or_create_session' [in /var/www/cinematch/app.py:313]
+2025-08-31 01:57:21,157 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 01:57:22,011 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 01:57:22,015 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 01:58:10,317 ERROR: Chat API error: Entity namespace for "cinebot_sessions" has no property "is_active" [in /var/www/cinematch/app.py:321]
+2025-08-31 01:58:22,434 ERROR: Chat API error: Entity namespace for "cinebot_sessions" has no property "is_active" [in /var/www/cinematch/app.py:321]
+2025-08-31 01:58:41,254 ERROR: Chat API error: Entity namespace for "cinebot_sessions" has no property "is_active" [in /var/www/cinematch/app.py:321]
+2025-08-31 01:59:44,757 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 01:59:45,601 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 01:59:45,606 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 02:01:02,990 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 02:01:03,874 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 02:01:03,880 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 02:01:03,886 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 02:01:03,886 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 02:01:03,919 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 02:01:03,919 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 02:01:03,922 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 02:01:03,922 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 02:07:05,316 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 02:07:06,166 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 02:07:06,170 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 02:10:29,346 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 02:10:30,203 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 02:10:30,208 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 02:20:16,675 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 02:20:17,528 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 02:20:17,533 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 02:23:26,665 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 02:23:27,502 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 02:23:27,507 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 02:25:29,078 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 02:25:29,917 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 02:25:29,922 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 02:28:04,744 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 02:28:05,602 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 02:28:05,607 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 02:30:26,020 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 02:30:26,861 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 02:30:26,866 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 02:31:14,545 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 02:31:15,444 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 02:31:15,449 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-08-31 02:33:24,717 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-08-31 02:33:25,571 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-08-31 02:33:25,577 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 01:03:28,382 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 01:03:30,235 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-09-01 01:03:30,246 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 01:07:20,614 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 01:07:22,462 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-09-01 01:07:22,472 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 01:10:13,479 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 01:10:15,445 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-09-01 01:10:15,455 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 01:12:18,125 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 01:12:20,014 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-09-01 01:12:20,024 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 01:22:14,465 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 01:22:16,371 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-09-01 01:22:16,382 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 01:22:50,425 ERROR: Exception on / [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/app.py", line 140, in index
+    return render_template('index.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/var/www/cinematch/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/var/www/cinematch/templates/base.html", line 110, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/templates/index.html", line 124, in block 'content'
+    <span class="text-xs text-gray-400" id="bot-timestamp">{{ moment().format('h:mm A') }}</span>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'moment' is undefined
+2025-09-01 01:22:54,089 ERROR: Exception on / [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/app.py", line 140, in index
+    return render_template('index.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/var/www/cinematch/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/var/www/cinematch/templates/base.html", line 110, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/templates/index.html", line 124, in block 'content'
+    <span class="text-xs text-gray-400" id="bot-timestamp">{{ moment().format('h:mm A') }}</span>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'moment' is undefined
+2025-09-01 01:22:55,637 ERROR: Exception on / [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/app.py", line 140, in index
+    return render_template('index.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/var/www/cinematch/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/var/www/cinematch/templates/base.html", line 110, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/templates/index.html", line 124, in block 'content'
+    <span class="text-xs text-gray-400" id="bot-timestamp">{{ moment().format('h:mm A') }}</span>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'moment' is undefined
+2025-09-01 01:22:57,022 ERROR: Exception on / [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/app.py", line 140, in index
+    return render_template('index.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/var/www/cinematch/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/var/www/cinematch/templates/base.html", line 110, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/templates/index.html", line 124, in block 'content'
+    <span class="text-xs text-gray-400" id="bot-timestamp">{{ moment().format('h:mm A') }}</span>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'moment' is undefined
+2025-09-01 01:23:19,206 ERROR: Exception on / [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/app.py", line 140, in index
+    return render_template('index.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/var/www/cinematch/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/var/www/cinematch/templates/base.html", line 110, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/templates/index.html", line 124, in block 'content'
+    <span class="text-xs text-gray-400" id="bot-timestamp">{{ moment().format('h:mm A') }}</span>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'moment' is undefined
+2025-09-01 01:23:31,900 ERROR: Exception on / [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/app.py", line 140, in index
+    return render_template('index.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/var/www/cinematch/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/var/www/cinematch/templates/base.html", line 110, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/templates/index.html", line 124, in block 'content'
+    <span class="text-xs text-gray-400" id="bot-timestamp">{{ moment().format('h:mm A') }}</span>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'moment' is undefined
+2025-09-01 01:23:41,020 ERROR: Exception on / [GET] [in /var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py:1414]
+Traceback (most recent call last):
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask_cors/extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/app.py", line 140, in index
+    return render_template('index.html')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 151, in render_template
+    return _render(app, template, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/flask/templating.py", line 132, in _render
+    rv = template.render(context)
+         ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 1295, in render
+    self.environment.handle_exception()
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/environment.py", line 942, in handle_exception
+    raise rewrite_traceback_stack(source=source)
+  File "/var/www/cinematch/templates/index.html", line 1, in top-level template code
+    {% extends "base.html" %}
+  File "/var/www/cinematch/templates/base.html", line 110, in top-level template code
+    {% block content %}{% endblock %}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/templates/index.html", line 124, in block 'content'
+    <span class="text-xs text-gray-400" id="bot-timestamp">{{ moment().format('h:mm A') }}</span>
+    ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/var/www/cinematch/venv/lib/python3.12/site-packages/jinja2/utils.py", line 92, in from_obj
+    if hasattr(obj, "jinja_pass_arg"):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+jinja2.exceptions.UndefinedError: 'moment' is undefined
+2025-09-01 01:24:25,498 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 01:24:27,357 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-09-01 01:24:27,367 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 01:27:54,235 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 01:27:56,086 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-09-01 01:27:56,097 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 01:30:18,764 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 01:30:20,697 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-09-01 01:30:20,710 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 01:44:01,136 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 01:44:03,159 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-09-01 01:44:03,169 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 01:51:03,370 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 01:51:05,347 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-09-01 01:51:05,359 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 01:55:10,759 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 01:55:12,749 ERROR: Failed to integrate safety systems: 'AppGroup' object has no attribute 'argument' [in /var/www/cinematch/app.py:273]
+2025-09-01 01:55:12,760 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 19:55:36,786 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:55:52,661 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:56:10,381 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:56:11,193 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 19:56:11,204 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 19:56:11,211 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:56:11,211 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:56:11,241 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 19:56:11,241 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 19:56:11,245 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 19:56:11,245 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 19:56:34,063 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:56:34,837 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 19:56:34,841 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 19:56:34,849 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:56:34,849 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:56:34,875 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 19:56:34,875 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 19:56:34,878 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 19:56:34,878 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 19:57:05,175 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:57:05,959 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 19:57:05,964 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 19:57:05,970 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:57:05,970 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:57:05,999 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 19:57:05,999 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 19:57:06,003 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 19:57:06,003 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 19:57:24,072 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:57:24,847 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 19:57:24,852 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 19:57:24,859 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:57:24,859 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:57:24,889 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 19:57:24,889 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 19:57:24,892 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 19:57:24,892 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 19:57:35,964 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:57:36,746 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 19:57:36,751 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 19:57:36,758 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:57:36,758 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 19:57:36,788 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 19:57:36,788 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 19:57:36,791 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 19:57:36,791 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:17:08,451 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:17:09,275 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:17:09,280 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:17:09,286 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:17:09,286 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:17:09,317 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:17:09,317 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:17:09,320 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:17:09,320 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:17:28,427 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:17:29,250 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:17:29,255 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:17:29,261 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:17:29,261 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:17:29,293 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:17:29,293 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:17:29,296 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:17:29,296 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:19:31,894 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:19:32,674 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:19:32,680 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:19:32,689 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:19:32,689 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:19:32,718 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:19:32,718 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:19:32,722 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:19:32,722 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:19:43,280 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:19:44,070 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:19:44,075 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:19:44,082 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:19:44,082 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:19:44,197 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:19:44,197 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:19:44,200 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:19:44,200 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:20:37,926 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:20:38,721 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:20:38,727 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:20:38,734 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:20:38,734 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:20:38,762 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:20:38,762 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:20:38,765 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:20:38,765 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:20:59,495 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:21:00,293 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:21:00,298 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:21:00,305 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:21:00,305 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:21:00,335 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:21:00,335 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:21:00,339 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:21:00,339 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:21:10,381 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:21:11,128 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:21:11,132 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:21:11,139 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:21:11,139 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:21:11,171 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:21:11,171 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:21:11,175 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:21:11,175 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:22:05,079 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:22:05,854 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:22:05,860 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:22:05,867 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:22:05,867 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:22:05,894 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:22:05,894 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:22:05,897 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:22:05,897 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:22:33,563 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:22:34,317 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:22:34,323 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:22:34,329 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:22:34,329 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:22:34,357 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:22:34,357 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:22:34,360 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:22:34,360 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:22:55,567 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:22:56,315 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:22:56,320 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:22:56,326 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:22:56,326 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:22:56,357 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:22:56,357 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:22:56,360 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:22:56,360 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:29:08,997 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:29:09,869 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:29:09,875 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:29:46,786 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:29:47,598 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:29:47,604 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:29:58,109 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:29:58,912 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:29:58,917 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]
+2025-09-01 20:32:27,129 INFO: Cinematch startup [in /var/www/cinematch/app.py:166]
+2025-09-01 20:32:28,030 WARNING: Safety integration not available: No module named 'geoip2' [in /var/www/cinematch/app.py:271]
+2025-09-01 20:32:28,037 INFO: Payment security systems initialized successfully [in /var/www/cinematch/app.py:232]

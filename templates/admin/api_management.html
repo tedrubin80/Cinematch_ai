@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API Management - Cinematch Admin</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        .api-card {
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+        .api-card:hover {
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        .status-active { color: #28a745; }
+        .status-missing { color: #dc3545; }
+        .masked-key {
+            font-family: 'Courier New', monospace;
+            background: #f8f9fa;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+        .admin-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .secure-badge {
+            background: #28a745;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h1><i class="bi bi-key"></i> API Key Management</h1>
+                    <p class="mb-0">Secure management of API keys for Cinematch services</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!-- Alert messages -->
+        <div id="alertContainer"></div>
+
+        <!-- System Status -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h5><i class="bi bi-activity"></i> System Status</h5>
+                        <button class="btn btn-sm btn-outline-primary" onclick="refreshSystemStatus()">
+                            <i class="bi bi-arrow-clockwise"></i> Refresh
+                        </button>
+                    </div>
+                    <div class="card-body">
+                        <div id="systemStatus">
+                            <div class="text-center">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Loading...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- API Keys Management -->
+        <div class="row">
+            {% for provider, info in api_keys.items() %}
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card api-card">
+                    <div class="card-header d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0">
+                            {% if provider == 'openai' %}
+                                <i class="bi bi-robot"></i> OpenAI
+                            {% elif provider == 'anthropic' %}
+                                <i class="bi bi-cpu"></i> Anthropic Claude
+                            {% elif provider == 'google' %}
+                                <i class="bi bi-google"></i> Google Gemini
+                            {% elif provider == 'llm_service' %}
+                                <i class="bi bi-cloud"></i> LLM Service
+                            {% endif %}
+                        </h6>
+                        <span class="secure-badge">SECURE</span>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <small class="text-muted">Current Key:</small>
+                            <div class="masked-key">{{ info.key }}</div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <small class="text-muted">Status:</small>
+                            <div>
+                                <span class="status-{{ info.status }}">
+                                    <i class="bi bi-{{ 'check-circle' if info.status == 'active' else 'x-circle' }}"></i>
+                                    {{ info.status.title() }}
+                                </span>
+                            </div>
+                        </div>
+
+                        <form onsubmit="updateApiKey(event, '{{ provider }}')">
+                            <div class="mb-3">
+                                <label class="form-label">New API Key:</label>
+                                <input type="password" class="form-control" name="api_key" 
+                                       placeholder="Enter new {{ provider }} API key" required>
+                            </div>
+                            <div class="d-flex gap-2">
+                                <button type="submit" class="btn btn-primary btn-sm flex-grow-1">
+                                    <i class="bi bi-key"></i> Update
+                                </button>
+                                <button type="button" class="btn btn-outline-secondary btn-sm" 
+                                        onclick="testApiKey('{{ provider }}')">
+                                    <i class="bi bi-check-circle"></i> Test
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <!-- Security Tools -->
+        <div class="row mt-4">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h5><i class="bi bi-shield-check"></i> Security Tools</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6>Generate Secure Password</h6>
+                                <p class="text-muted small">Generate a cryptographically secure password</p>
+                                <div class="d-flex gap-2">
+                                    <input type="text" id="generatedPassword" class="form-control" readonly>
+                                    <button class="btn btn-outline-primary" onclick="generatePassword()">Generate</button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6>Quick Actions</h6>
+                                <p class="text-muted small">Common administrative tasks</p>
+                                <div class="d-flex gap-2 flex-wrap">
+                                    <a href="/admin" class="btn btn-outline-secondary btn-sm">
+                                        <i class="bi bi-house"></i> Dashboard
+                                    </a>
+                                    <a href="/admin/logs" class="btn btn-outline-secondary btn-sm">
+                                        <i class="bi bi-journal-text"></i> Logs
+                                    </a>
+                                    <button class="btn btn-outline-warning btn-sm" onclick="showPasswordChecklist()">
+                                        <i class="bi bi-list-check"></i> Password Checklist
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        function showAlert(message, type = 'success') {
+            const alertContainer = document.getElementById('alertContainer');
+            const alertDiv = document.createElement('div');
+            alertDiv.className = `alert alert-${type} alert-dismissible fade show`;
+            alertDiv.innerHTML = `
+                ${message}
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            `;
+            alertContainer.appendChild(alertDiv);
+            
+            // Auto-dismiss after 5 seconds
+            setTimeout(() => {
+                alertDiv.remove();
+            }, 5000);
+        }
+
+        async function updateApiKey(event, provider) {
+            event.preventDefault();
+            const form = event.target;
+            const formData = new FormData(form);
+            formData.append('provider', provider);
+            
+            try {
+                const response = await fetch('/admin/api/update', {
+                    method: 'POST',
+                    body: formData
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert(result.message, 'success');
+                    form.reset();
+                    // Update the masked key display
+                    const maskedKeyDiv = form.closest('.card').querySelector('.masked-key');
+                    maskedKeyDiv.textContent = result.masked_key;
+                } else {
+                    showAlert(result.error, 'danger');
+                }
+            } catch (error) {
+                showAlert('Network error occurred', 'danger');
+            }
+        }
+
+        async function testApiKey(provider) {
+            try {
+                const response = await fetch(`/admin/api/test/${provider}`, {
+                    method: 'POST'
+                });
+                
+                const result = await response.json();
+                
+                if (result.success) {
+                    showAlert(`${provider.toUpperCase()}: ${result.message}`, 'success');
+                } else {
+                    showAlert(`${provider.toUpperCase()}: ${result.message}`, 'warning');
+                }
+            } catch (error) {
+                showAlert('Network error during test', 'danger');
+            }
+        }
+
+        async function generatePassword() {
+            try {
+                const response = await fetch('/admin/api/generate-secure-password');
+                const result = await response.json();
+                document.getElementById('generatedPassword').value = result.password;
+            } catch (error) {
+                showAlert('Error generating password', 'danger');
+            }
+        }
+
+        async function refreshSystemStatus() {
+            const statusDiv = document.getElementById('systemStatus');
+            statusDiv.innerHTML = '<div class="text-center"><div class="spinner-border text-primary" role="status"><span class="visually-hidden">Loading...</span></div></div>';
+            
+            try {
+                const response = await fetch('/admin/api/system-status');
+                const result = await response.json();
+                
+                if (result.success) {
+                    let statusHTML = '<div class="row">';
+                    
+                    // Services status
+                    statusHTML += '<div class="col-md-6"><h6>Services</h6>';
+                    for (const [service, status] of Object.entries(result.services)) {
+                        const icon = status ? 'check-circle text-success' : 'x-circle text-danger';
+                        const statusText = status ? 'Running' : 'Stopped';
+                        statusHTML += `<div><i class="bi bi-${icon}"></i> ${service}: ${statusText}</div>`;
+                    }
+                    statusHTML += '</div>';
+                    
+                    // System metrics
+                    statusHTML += '<div class="col-md-6"><h6>System Metrics</h6>';
+                    statusHTML += `<div>CPU: ${result.system.cpu_percent}%</div>`;
+                    statusHTML += `<div>Memory: ${result.system.memory_percent}%</div>`;
+                    statusHTML += `<div>Disk: ${result.system.disk_percent}%</div>`;
+                    statusHTML += `<div>Load: ${result.system.load_average.toFixed(2)}</div>`;
+                    statusHTML += '</div></div>';
+                    
+                    statusDiv.innerHTML = statusHTML;
+                } else {
+                    statusDiv.innerHTML = '<div class="text-danger">Error loading system status</div>';
+                }
+            } catch (error) {
+                statusDiv.innerHTML = '<div class="text-danger">Network error</div>';
+            }
+        }
+
+        function showPasswordChecklist() {
+            window.open('/static/PASSWORD_CHANGE_CHECKLIST.md', '_blank');
+        }
+
+        // Load system status on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            refreshSystemStatus();
+        });
+    </script>
+</body>
+</html>
